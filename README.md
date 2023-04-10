@@ -14,9 +14,8 @@
 | first_name            | string  | null: false               | 
 | kana_last_name        | string  | null: false               |
 | kana_first_name       | string  | null: false               |
-| birthday_y_id         | integer | null: false               |
-| birthday_m_id         | integer | null: false               |
-| birthday_d_id         | integer | null: false               |
+| birthday              | date    | null: false               |
+
 
 ### Association
 
