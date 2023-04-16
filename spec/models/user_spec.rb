@@ -100,6 +100,26 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include("Password is too long (maximum is 128 characters)")
       end
+      it '姓（全角）に半角文字が含まれていると登録できない' do
+        @user.last_name = "ﾔﾏﾀﾞ"
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Last name 全角日本語を使用してください")
+      end
+      it '名（全角）に半角文字が含まれていると登録できない' do
+        @user.first_name = "ﾀﾛｳ"
+        @user.valid?
+        expect(@user.errors.full_messages).to include("First name 全角日本語を使用してください")
+      end
+      it '姓（カナ）にカタカナ以外の文字（平仮名・漢字・英数字・記号）が含まれていると登録できない' do
+        @user.kana_last_name = "山田"
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Kana last name 全角カタカナを使用してください")
+      end
+      it '名（カナ）にカタカナ以外の文字（平仮名・漢字・英数字・記号）が含まれていると登録できない' do
+        @user.kana_first_name = "太郎"
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Kana first name 全角カタカナを使用してください")
+      end
     end
   end
 end
