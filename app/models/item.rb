@@ -9,7 +9,12 @@ class Item < ApplicationRecord
   belongs_to :user
   has_one_attached :image
 
-  validates :item_name, :content, :price, :image, presence: true
+  validates :item_name, :content, :image, presence: true
+
+  with_options presence: true, format: { with: /\A[0-9]+\z/ }, inclusion: { in: 300..9999999 } do
+    validates :price
+  end
+
   validates :category_id, :status_id, :delivery_charge_id, :prefecture_id, :days_to_ship_id, numericality: { other_than: 1 , message: "can't be blank" } 
 
 end
