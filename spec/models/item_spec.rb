@@ -22,28 +22,28 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Item name can't be blank")
       end
-      it 'category_idが空だと出品できない'  do
-        @item.category_id = ''
+      it 'category_idでid:1を選択した時は出品できない'  do
+        @item.category_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Category can't be blank")
       end
-      it 'status_idが空だと出品できない'  do
-        @item.status_id = ''
+      it 'status_idでid:1を選択した時は出品できない'  do
+        @item.status_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Status can't be blank")
       end
-      it 'delivery_charge_idが空だと出品できない'  do
-        @item.delivery_charge_id = ''
+      it 'delivery_charge_idでid:1を選択した時は出品できない'  do
+        @item.delivery_charge_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Delivery charge can't be blank")
       end
-      it 'prefecture_idが空だと出品できない'  do
-        @item.prefecture_id = ''
+      it 'prefecture_idでid:1を選択した時は出品できない'  do
+        @item.prefecture_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Prefecture can't be blank")
       end
-      it 'days_to_ship_idが空だと出品できない' do
-        @item.days_to_ship_id = ''
+      it 'days_to_ship_idでid:1を選択した時は出品できない' do
+        @item.days_to_ship_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Days to ship can't be blank")
       end
