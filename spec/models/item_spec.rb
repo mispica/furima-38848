@@ -65,7 +65,7 @@ RSpec.describe Item, type: :model do
       it 'priceが半角数値でなければ出品できない' do
         @item.price = '１０００'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price is not included in the list")
+        expect(@item.errors.full_messages).to include( "Price is not a number")
       end
       it 'userが紐付いていないと出品できない' do
         @item.user = nil
