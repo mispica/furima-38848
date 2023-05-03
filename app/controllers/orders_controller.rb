@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_item
+  before_action :order_set_item
 
   def index
     if (current_user.id == @item.user_id) || @item.order
@@ -37,7 +37,7 @@ class OrdersController < ApplicationController
 
   private
 
-  def set_item
+  def order_set_item
     @item = Item.find(params[:item_id])
   end
 
