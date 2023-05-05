@@ -2,7 +2,7 @@
 lock "~> 3.17.2"
 
 set :application, "furima-38848"
-set :repo_url, "git@example.com:mispica/furima-38848.git"
+set :repo_url, "git@github.com:mispica/furima-38848.git"
 
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
 
